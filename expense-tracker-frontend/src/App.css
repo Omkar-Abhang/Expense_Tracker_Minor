@@ -1,0 +1,313 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #B6FFA1; /* Light Green */
+  color: #333; /* Dark text for better contrast */
+}
+.App{
+  width: 100%;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center the navbar items horizontally */
+  align-items: center; /* Vertically align items in the center */
+  background-color: #00FF9C; /* Light Green */
+  border-bottom: 2px solid #333; /* Bright Yellow Border */
+  height: 70px; /* Adjust height for better spacing */
+  transition: background-color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.navbar:hover {
+  background-color: #00FF9C; /* Light Yellowish Green */
+  border-bottom: 2px solid #333; /* Change border color on hover */
+}
+
+/* Navbar Brand */
+.navbar-brand {
+  color: #333 !important;
+  font-weight: bold; /* Make the text bold */
+  font-size: 2rem; /* Large text */
+  text-transform: uppercase; /* Capitalize letters for a more professional look */
+  letter-spacing: 2px; /* Optional: Space out the letters for a cleaner look */
+}
+
+/* Navbar Brand on hover */
+.navbar-brand:hover {
+  color: #FFE700; /* Bright Yellow on hover */
+}
+
+
+/* Card Styles */
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #b4e7a6; /* Light Yellowish Green */
+}
+
+.card-header {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: #FEFFA7; /* Soft Yellow */
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+/* Buttons */
+button {
+  background-color: #B6FFA1; /* Light Yellowish Green */
+  border: none;
+  color: #333;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  padding: 0.75rem;
+  border-radius: 8px;
+  width: 100%;
+}
+
+
+
+/* Hover effect for AddExpense and ExpenseList components */
+.add-expense, .expense-list {
+  transition: all 0.3s ease-in-out; /* Smooth transition for all properties */
+  border-radius: 8px; /* Rounded corners for a smooth look */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Initial subtle shadow */
+}
+
+.add-expense:hover, .expense-list:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* More intense shadow on hover */
+}
+
+/* Additional styles for padding and margin for components */
+.add-expense, .expense-list {
+  margin: 0.5rem; /* Space between components */
+  padding: 1rem; /* Space inside the components */
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .add-expense, .expense-list {
+    margin: 0.5rem 0; /* Reduce margin on mobile */
+    padding: 1rem; /* Reduce padding on mobile */
+  }
+}
+
+
+/* Expense List */
+.expense-list .list-group-item {
+  background-color: #FEFFA7; /* Soft Yellow */
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+}
+
+.expense-list .list-group-item span {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Form Fields */
+input {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #00FF9C; /* Light Green */
+  color: white;
+  padding: 10px;
+}
+
+.footer a {
+  color: white; /* Bright Yellow */
+  font-weight: 700;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  color: #B6FFA1; /* Light Yellowish Green */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .col-md-6 {
+    margin-bottom: 20px;
+  }
+  .footer {
+    position: static;
+  }
+  .container {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+/* Heading Animations */
+h3 {
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+.card {
+  border-radius: 10px;
+}
+
+.btn-primary {
+  background-color: #00ff9c;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #51bd92;
+}
+
+
+
+
+/* Modal Overlay (Dark background) */
+.custom-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal Box */
+.custom-modal {
+  background: white;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Button */
+@media (max-width: 768px) {
+  .navbar h2 {
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar .btn-warning {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+/* Add this in App.css or a new CSS file */
+.budget-container {
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.budget-form {
+  margin-top: 20px;
+}
+
+
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .budget-container{
+    padding: 15px;
+  }
+
+  .budget-form button {
+    padding: 10px;
+  }
+}
+
+.budget-progress-container {
+  width: 100%; /* Ensure full width */
+  padding: 10px 15px;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 80px; /* This value can be adjusted based on the navbar height */
+}
+
+@media (max-width: 768px) {
+  .budget-progress-container {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 10px;
+  }
+}
+
+
+
+
+
+/* Navbar Styling */
+.custom-navbar {
+  background-color: #212529 !important; /* Dark theme */
+  padding: 10px 30px;
+}
+
+.custom-navbar .navbar-brand {
+  color: white !important;  /* Navbar text color */
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.custom-navbar .nav-link {
+  color: white !important;
+  font-size: 1rem;
+}
+
+/* Budget Button */
+.budget-btn {
+  font-size: 1rem;
+  padding: 6px 12px;
+  transition: 0.3s ease-in-out;
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+  .custom-navbar .navbar-brand {
+    font-size: 1.2rem; /* Reduce text size */
+  }
+
+  .budget-btn {
+    font-size: 0.9rem; /* Smaller button */
+    width: 100%; /* Full width button */
+    margin-top: 10px;
+  }
+
+  .navbar-toggler {
+    border-color: white;
+  }
+    /* Fix for Mobile View: Push content down when navbar expands */
+    .navbar-spacing {
+      height: 120px; /* Extra space to avoid overlap */
+    }
+}
+
