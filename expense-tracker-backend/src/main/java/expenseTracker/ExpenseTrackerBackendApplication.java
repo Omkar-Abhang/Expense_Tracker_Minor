@@ -10,4 +10,10 @@ public class ExpenseTrackerBackendApplication {
 		SpringApplication.run(ExpenseTrackerBackendApplication.class, args);
 	}
 
+	@Controller
+     	@GetMapping("/health")
+    	 public String health(){
+		 Systemou.println("All Endpoints Are Working");
+	 }
+
 }
