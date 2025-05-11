@@ -10,7 +10,7 @@
 	</parent>
 
 	<groupId>io.reflectoring</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>ExpenceTrackerApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Expense_Tracker_Backend</name>
 	<description>Expense Tracker Web App</description>

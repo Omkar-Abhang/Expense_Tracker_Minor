@@ -21,17 +21,17 @@ const BudgetProgress = ({ budget, expenses }) => {
   };
 
   return (
-    <Container className="budget-progress-container mt-9 mb-10" expand="lg">
-      <Row>
-        <Col>
-          <h6 className="text-center text-secondary">Budget Progress</h6>
+    <Container className="budget-progress-container my-4 rounded border border-black shadow-sm">
+      <Row className="justify-content-center">
+        <Col xs={12} sm={10} md={8} lg={6}>
+          <h6 className="text-center text-secondary mb-3">Budget Progress</h6>
           <ProgressBar
             now={progress}
             label={`${Math.round(progress)}%`}
             variant={getProgressBarVariant()}
             style={{ height: "30px", fontWeight: "bold" }}
           />
-          <div className="d-flex justify-content-between mt-1">
+          <div className="d-flex justify-content-between mt-3">
             <span className="text-muted">Spent: ₹{totalExpenses}</span>
             <span className="text-muted">Budget: ₹{budget}</span>
           </div>
