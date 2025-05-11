@@ -19,14 +19,14 @@ public class ExpenseController {
     private ExpenseService expenseService;
 
     @GetMapping
-    public List<Expense> getAllExpenses() {
-        return expenseService.getAllExpenses();
+    public List<Expense> getExpensesByUser(@RequestParam String email) {
+        return expenseService.getExpensesByUser(email);
     }
 
-    @GetMapping("/{id}")
-    public Optional<Expense> getExpenseById(@PathVariable Long id) {
-        return expenseService.getExpenseById(id);
-    }
+//    @GetMapping("/{id}")
+//    public Optional<Expense> getExpenseById(@PathVariable Long id) {
+//        return expenseService.getExpenseById(id);
+//    }
 
     @GetMapping("/total")
     public Double getTotalAmount() {

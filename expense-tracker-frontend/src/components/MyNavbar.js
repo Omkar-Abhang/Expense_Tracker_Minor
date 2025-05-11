@@ -3,7 +3,7 @@ import { Navbar, Nav, Button, Modal, Container } from "react-bootstrap";
 import AddBudget from "./AddBudget";
 import "../App.css";
 
-const MyNavbar = ({ setBudget }) => {
+const MyNavbar = ({ setBudget,handleLogout }) => {
   const [showBudgetModal, setShowBudgetModal] = useState(false);
 
   return (
@@ -20,6 +20,13 @@ const MyNavbar = ({ setBudget }) => {
                 onClick={() => setShowBudgetModal(true)}
               >
                 Set Monthly Budget
+              </Button>
+              <Button
+                variant="outline-light"
+                className="logout-btn mx-3"
+                onClick={handleLogout}
+              >
+                Logout
               </Button>
             </Nav>
           </Navbar.Collapse>

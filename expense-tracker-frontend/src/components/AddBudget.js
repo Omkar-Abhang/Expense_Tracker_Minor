@@ -17,7 +17,7 @@ const AddBudget = ({ setBudget, onClose }) => {
     }
 
     try {
-      await axios.post("http://localhost:8080/api/budget", { amount });
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/budget?email=${localStorage.getItem("email")}`, { amount });
       setBudget(amount); // Update state globally
       setToastMessage(`Your monthly budget has been set to ₹${amount}.`);
       setToastType("success");

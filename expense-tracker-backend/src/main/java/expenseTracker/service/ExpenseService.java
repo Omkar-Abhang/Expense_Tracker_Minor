@@ -5,6 +5,7 @@ import expenseTracker.repository.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +23,11 @@ public class ExpenseService {
     public Optional<Expense> getExpenseById(Long id) {
         return expenseRepository.findById(id);
     }
+
+    public List<Expense> getExpensesByUser(String userEmail) {
+        return expenseRepository.findByUserEmail(userEmail);
+    }
+
 
     public Expense addExpense(Expense expense) {
         return expenseRepository.save(expense);

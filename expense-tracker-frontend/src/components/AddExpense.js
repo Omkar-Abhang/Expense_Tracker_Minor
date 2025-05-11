@@ -6,7 +6,11 @@ import "../App.css";
 const AddExpense = ({ refreshExpenses }) => {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(() => {
+    const today = new Date();
+    return today.toISOString().split("T")[0]; // Format: YYYY-MM-DD
+  });
+    const userEmail=localStorage.getItem("email");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,10 +19,11 @@ const AddExpense = ({ refreshExpenses }) => {
       title,
       amount: parseFloat(amount),
       date,
+      userEmail,
     };
 
     try {
-      await axios.post("http://localhost:8080/api/expenses", expenseData, {
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/expenses`, expenseData, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });

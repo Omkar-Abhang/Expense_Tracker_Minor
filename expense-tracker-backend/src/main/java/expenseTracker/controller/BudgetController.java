@@ -7,27 +7,22 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/budget")
-@CrossOrigin(origins = "http://localhost:3000") // Allow frontend requests
+//@CrossOrigin(origins = "http://localhost:3000") // Allow frontend requests
 public class BudgetController {
 
     @Autowired
     private BudgetService budgetService;
 
-    // ✅ Get current budget
+    // ✅ Get current user's budget using email as request param
     @GetMapping
-    public Budget getBudget() {
-        return budgetService.getBudget();
+    public Budget getBudget(@RequestParam("email") String email) {
+        return budgetService.getBudgetForUser(email);
     }
 
-    // ✅ Set or update budget
+    // ✅ Set or update budget using email as request param
     @PostMapping
-    public Budget setBudget(@RequestBody Budget budget) {
-        return budgetService.setBudget(budget.getAmount());
-    }
-
-    // ✅ Delete budget (optional)
-    @DeleteMapping
-    public void deleteBudget() {
-        budgetService.deleteBudget();
+    public Budget setBudget(@RequestParam("email") String email,
+                            @RequestBody Budget budgetRequest) {
+        return budgetService.setBudgetForUser(email, budgetRequest.getAmount());
     }
 }

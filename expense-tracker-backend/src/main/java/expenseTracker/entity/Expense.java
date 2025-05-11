@@ -1,41 +1,35 @@
 package expenseTracker.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.time.LocalDate;
 
 @Entity
+@Data
 @Table(name = "expenses")
 
 public class Expense {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
     private String title;
     private Double amount;
     private LocalDate date;
 
+    @Column(nullable = false)
+    private String userEmail;
+
     // Constructors
     public Expense() {}
 
-    public Expense(String title, Double amount, LocalDate date) {
+    public Expense(String title, Double amount, LocalDate date, String userEmail) {
         this.title = title;
         this.amount = amount;
         this.date = date;
+        this.userEmail = userEmail;
     }
 
-    // Getters and Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
 
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
-
-
-    public Double getAmount() { return amount; }
-    public void setAmount(Double amount) { this.amount = amount; }
-
-    public LocalDate getDate() { return date; }
-    public void setDate(LocalDate date) { this.date = date; }
 }
 

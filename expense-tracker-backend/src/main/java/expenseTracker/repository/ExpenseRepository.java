@@ -7,6 +7,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
+
 
 @Repository
 public interface ExpenseRepository extends JpaRepository<Expense, Long> ,CrudRepository<Expense, Long> {
@@ -14,6 +16,9 @@ public interface ExpenseRepository extends JpaRepository<Expense, Long> ,CrudRep
     // Using JPQL to sum the amount field
     @Query(value = "SELECT SUM(amount) FROM expenses", nativeQuery = true)
     Double sumTotalAmount();
+
+    List<Expense> findByUserEmail(String userEmail);
+
 
 }
 

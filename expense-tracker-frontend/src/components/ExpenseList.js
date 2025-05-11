@@ -16,7 +16,7 @@ const ExpenseList = ({ expenses, refreshExpenses }) => {
   const handleDelete = async (id) => {
     try {
       // Delete the expense from backend
-      await axios.delete(`http://localhost:8080/api/expenses/${id}`);
+      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/expenses/${id}`);
       refreshExpenses(); // Refresh the list after deletion
     } catch (error) {
       console.error("❌ Error deleting expense:", error);
@@ -41,7 +41,7 @@ const ExpenseList = ({ expenses, refreshExpenses }) => {
 
     try {
       await axios.put(
-        `http://localhost:8080/api/expenses/${editingExpenseId}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/expenses/${editingExpenseId}`,
         updatedExpense
       );
       refreshExpenses(); // Refresh the list after updating

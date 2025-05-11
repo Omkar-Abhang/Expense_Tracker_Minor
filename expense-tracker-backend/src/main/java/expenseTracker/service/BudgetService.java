@@ -6,38 +6,34 @@ import expenseTracker.repository.BudgetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BudgetService {
     @Autowired
     private BudgetRepository budgetRepository;
 
-    // Get the latest budget (assuming only one budget record)
-    public Budget getBudget() {
-        List<Budget> budgets = budgetRepository.findAll();
-        return budgets.isEmpty() ? null : budgets.getFirst();
+
+//    get budget
+    public Budget getBudgetForUser(String email) {
+        return budgetRepository.findByUserEmail(email).orElse(null);
     }
 
-    // Set or update budget
-    public Budget setBudget(double amount) {
-        List<Budget> budgets = budgetRepository.findAll();
+
+//    set budget
+    public Budget setBudgetForUser(String email, double amount) {
+        Optional<Budget> optionalBudget = budgetRepository.findByUserEmail(email);
         Budget budget;
 
-        if (!budgets.isEmpty()) {
-            // Update existing budget
-            budget = budgets.getFirst();
+        if (optionalBudget.isPresent()) {
+            budget = optionalBudget.get();
             budget.setAmount(amount);
         } else {
-            // Create new budget
-            budget = new Budget(amount);
+            budget = new Budget(amount, email);
         }
 
         return budgetRepository.save(budget);
     }
 
-    // Delete budget (optional)
-    public void deleteBudget() {
-        budgetRepository.deleteAll();
-    }
 }
 
