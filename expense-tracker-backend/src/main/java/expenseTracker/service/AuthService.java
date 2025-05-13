@@ -37,6 +37,7 @@ public class AuthService {
 
         // Send email
         SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("rgorade256@gmail.com");
         message.setTo(email);
         message.setSubject("OTP for login on Expense Tracker Web App");
         message.setText("Hello User,\n" +
@@ -65,4 +66,3 @@ public class AuthService {
         return JwtUtil.generateToken(email); // Return JWT
     }
 }
-
